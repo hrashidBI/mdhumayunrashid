@@ -1,561 +1,1177 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Portfolio: Md. Humayun Rashid</title>
-<!-- 
-Moonlight Template 
-http://www.templatemo.com/tm-512-moonlight
--->
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Humayun Rashid — BI & Data Analytics Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy2: #0d2144;
+    --blue: #1a4a8a;
+    --accent: #2e75b6;
+    --bright: #4a9edd;
+    --gold: #f0a500;
+    --white: #f0f4f8;
+    --gray: #8899aa;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(74,158,221,0.15);
+  }
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/fontAwesome.css">
-        <link rel="stylesheet" href="css/light-box.css">
-        <link rel="stylesheet" href="css/templatemo-main.css">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  html { scroll-behavior: smooth; }
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--bright);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--bright); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,158,221,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,158,221,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(46,117,182,0.15) 0%, transparent 70%);
+    top: 10%; right: -10%;
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(74,158,221,0.08) 0%, transparent 70%);
+    bottom: 10%; left: -5%;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(74,158,221,0.1);
+    border: 1px solid rgba(74,158,221,0.3);
+    color: var(--bright);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .hero-name span {
+    background: linear-gradient(135deg, var(--bright), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--gray);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-title strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .hero-desc {
+    max-width: 600px;
+    color: var(--gray);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--bright);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.5s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary:hover {
+    background: var(--bright);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(74,158,221,0.3);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--bright);
+    color: var(--bright);
+    transform: translateY(-2px);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bright);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--bright));
+    border-radius: 2px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--gray);
+    margin-bottom: 1.2rem;
+    line-height: 1.9;
+  }
+
+  .about-text p strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+  }
+
+  .highlight-card:hover {
+    border-color: rgba(74,158,221,0.4);
+    background: rgba(74,158,221,0.05);
+    transform: translateX(4px);
+  }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(74,158,221,0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .highlight-text strong {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .highlight-text span {
+    font-size: 0.82rem;
+    color: var(--gray);
+  }
+
+  /* ── EXPERIENCE ── */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.4rem;
+    top: 0.4rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 3px rgba(46,117,182,0.2);
+  }
+
+  .timeline-dot.active {
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(240,165,0,0.2);
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .timeline-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+    color: var(--bright);
+    background: rgba(74,158,221,0.1);
+    padding: 0.2rem 0.7rem;
+    border-radius: 100px;
+    border: 1px solid rgba(74,158,221,0.2);
+    white-space: nowrap;
+  }
+
+  .timeline-company {
+    color: var(--bright);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline-points li {
+    color: var(--gray);
+    font-size: 0.9rem;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .timeline-points li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--bright);
+    font-weight: 700;
+  }
+
+  .timeline-points li strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--bright));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .project-card:hover {
+    border-color: rgba(74,158,221,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+
+  .project-year {
+    font-size: 0.75rem;
+    color: var(--bright);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-desc {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 100px;
+    background: rgba(74,158,221,0.08);
+    border: 1px solid rgba(74,158,221,0.2);
+    color: var(--bright);
+    font-weight: 500;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-category {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: border-color 0.3s;
+  }
+
+  .skill-category:hover { border-color: rgba(74,158,221,0.3); }
+
+  .skill-cat-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bright);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    transition: all 0.2s;
+  }
+
+  .skill-pill:hover {
+    background: rgba(74,158,221,0.1);
+    border-color: rgba(74,158,221,0.3);
+    color: var(--bright);
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .achievement-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .achievement-card:hover {
+    border-color: rgba(240,165,0,0.3);
+    background: rgba(240,165,0,0.04);
+    transform: translateY(-3px);
+  }
+
+  .achievement-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .achievement-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.4;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s;
+  }
+
+  .contact-item:hover {
+    border-color: rgba(74,158,221,0.4);
+    transform: translateX(4px);
+    color: var(--bright);
+  }
+
+  .contact-icon {
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(74,158,221,0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .contact-details strong {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-bottom: 0.1rem;
+  }
+
+  .contact-details span {
+    font-size: 0.9rem;
+  }
+
+  .open-to-work {
+    background: rgba(46,117,182,0.08);
+    border: 1px solid rgba(46,117,182,0.25);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .open-to-work h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--bright);
+  }
+
+  .location-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .location-tag {
+    background: rgba(74,158,221,0.1);
+    border: 1px solid rgba(74,158,221,0.25);
+    color: var(--white);
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  .open-to-work p {
+    color: var(--gray);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 3rem 4rem;
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer a { color: var(--bright); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    footer { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
 <body>
-    
-    <div class="sequence">
-  
-      <div class="seq-preloader">
-        <svg width="39" height="16" viewBox="0 0 39 16" xmlns="http://www.w3.org/2000/svg" class="seq-preload-indicator"><g fill="#F96D38"><path class="seq-preload-circle seq-preload-circle-1" d="M3.999 12.012c2.209 0 3.999-1.791 3.999-3.999s-1.79-3.999-3.999-3.999-3.999 1.791-3.999 3.999 1.79 3.999 3.999 3.999z"/><path class="seq-preload-circle seq-preload-circle-2" d="M15.996 13.468c3.018 0 5.465-2.447 5.465-5.466 0-3.018-2.447-5.465-5.465-5.465-3.019 0-5.466 2.447-5.466 5.465 0 3.019 2.447 5.466 5.466 5.466z"/><path class="seq-preload-circle seq-preload-circle-3" d="M31.322 15.334c4.049 0 7.332-3.282 7.332-7.332 0-4.049-3.282-7.332-7.332-7.332s-7.332 3.283-7.332 7.332c0 4.05 3.283 7.332 7.332 7.332z"/></g></svg>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">H. RASHID</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Deputy Manager – MIS &amp; IT · Bangladesh Lamps PLC · Transcom Group</div>
+    <h1 class="hero-name">Md. Humayun<br><span>Rashid</span></h1>
+    <p class="hero-title">
+      <strong>Deputy Manager – MIS & IT</strong> &nbsp;·&nbsp;
+      Business Intelligence & Data Analytics Lead
+    </p>
+    <p class="hero-desc">
+      11+ years delivering enterprise BI platforms, ERP implementations, and nationwide digital transformation in FMCG & manufacturing. I turn complex data into decisions that move businesses forward.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">11+</span>
+        <span class="stat-label">Years Experience</span>
       </div>
-      
+      <div class="stat">
+        <span class="stat-number">250+</span>
+        <span class="stat-label">Distributors Connected</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">SAP Reconciliation</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">৳100K</span>
+        <span class="stat-label">Monthly Savings</span>
+      </div>
     </div>
-    
-  
-        <nav>
-          <div class="logo">
-              <img src="img/logo.png" alt="">
-          </div>
-          <div class="mini-logo">
-              <img src="img/mini_logo.png" alt="">
-          </div>
-          <ul>
-            <li><a href="#1"><i class="fa fa-home"></i> <em>About</em></a></li>
-            <li><a href="#2"><i class="fa fa-user"></i> <em>Experience</em></a></li>
-            <li><a href="#3"><i class="fa fa-image"></i> <em>Portfolio</em></a></li>
-            <li><a href="#4"><i class="fa fa-pencil"></i> <em>Skills & Awards</em></a></li>
-            <li><a href="#5"><i class="fa fa-envelope"></i> <em>Contact</em></a></li>
-          </ul>
-        </nav>
-        
-        <div class="slides">
-          <div class="slide" id="1">
-            <div class="content first-content">
-              <div class="container-fluid">
-                  <div class="col-md-3">
-                      <div class="author-image"><img src="img/Pic1.png" alt=""></div>
-                  </div>
-                  <div class="col-md-9">
-                      <h2>Md. Humayun Rashid</h2>
-                      <p><em>Data Analyst</em> | <em>MIS</em> | <em>BI Developer</em></p>
-                      <p>As a <em>Data analyst or MIS</em>, my goal is to help organizations make better business decisions through IT support. </p>
-<p>Creative in finding solutions to problems and determining modifications for optimal use of organizational data. Expert at providing realistic projections and establishing various scenarios to determine viable process strategies to utilize. Organized and timely in providing staff, departmental members, and executive management with reports on specific data findings and their impact on organizational growth and success.</p>
-<p>Process oriented data analyst with <em>08 years</em>of experience. Experienced in interpreting and analyzing data to drive growth for a <em>Distribution</em> company. I have strong experience in <em>SQL, Programming languages and BI applications, CMS platforms as well as Android Applications, </em>, and other related applications and tools.</p>
-<p>I did my bachelor's in <em>Computer Science and Engineering</em> and now completing a Master of Professional Studies (MPS) in Applied <em>Statistics and Data Science</em>.</p>
-                    <div class="main-btn"><a href="#2">Read More</a></div> 
-                      <div class="main-btn"><a href="https://www.linkedin.com/in/mdhumayunrashid/" target="_blank">Linkedin</a></div>
-                      <div class="main-btn"><a href="https://github.com/hrashidBI" target="_blank">Github</a></div> 
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide" id="2">
-            <div class="content second-content">
-                <div class="container-fluid">
-                    <div class="col-md-6">
-                        <div class="left-content">
-                            <h2>Experience</h2>
-                            <div class="resume-date text-md-right">
-                                <span class="text-primary"><a href="https://www.transteclighting.com/">Bangladesh Lamps Limited</a> — Banani, Dhaka 	  <em>January 2021 - Present</em> </span>
-                            </div>
-                            <p>I work as an Assistant Manager of MIS & IT at Bangladesh Lamps Limited, planning and designing software solutions architects. </p><p>Assisted with all administrative tasks including IFS Implementation (SCM &  MFG Module), Report Development, Data- reconciliation, and Troubleshooting data consistency and report data preparation.</p> 
-                            <!-- <ul type="circle">
-                                <li> To manage a team of professionals to design and develop database systems. </li>
-                                <li> Collect data from sales, marketing, and finance departments to use in establishing organizational report development. </li>
-                                <li> Project Coordinator of Distribution Channel Secondary Sales System. </li>
-                            </ul> -->
-                            <div class="resume-date text-md-right">
-                                <span class="text-primary"><a href="http://www.transcombd.com/">Transcom Limited</a> — Gulshan-2, Dhaka 	  <em>August 2014 - December 2020</em> </span>
-                            </div>
-                            <p>I have worked as a System Analyst in various companies under Transcom Group.</p>
-                            <p>Upgrading and modifying in-house software and training the user on this software. Worked with advanced calculations to draw conclusions about data findings. Assisted superiors with interpreting data and compiling it in an organized manner. Report development according to the needs of different departments through QlikView. Using ETL tools (SSIS) to develop tasks for extracting, cleaning, converting, and loading data into a data warehouse. </p>
-                            <div class="resume-date text-md-right">
-                                <span class="text-primary"><a href="http://hrsoftbd.com/">HR SoftBD</a> — Mohammadpur, Dhaka 	  <em>November 2013 - Febuary 2014</em> </span>
-                            </div>
-                            <p>I worked as a software engineer in HR Soft Bangladesh, I work to improve the existing software (Accounting System).</p>
-                          <div class="main-btn"><a href="#3">Read More</a></div>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="right-image">
-                          <img src="img/about_image.jpg" alt="">
-                      </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="slide" id="4">
+    <div class="hero-cta">
+      <a href="/cdn-cgi/l/email-protection#7c11181409111d0509120e1d0f1415183c051d141313521f1311" class="btn-primary">📧 Get In Touch</a>
+      <a href="https://linkedin.com/in/mdhumayunrashid" target="_blank" class="btn-secondary">🔗 LinkedIn</a>
+      <a href="https://github.com/hrashidBI" target="_blank" class="btn-secondary">💻 GitHub</a>
+    </div>
+  </div>
+</div>
 
-            <div class="content fourth-content">
-                <div class="container-fluid">
-                    <div class="row">
-			    
-			    <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/web1b.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>CMS Website</h2>
-                                            <p>The Zoho platform is used. Client: Stephen Shapiro Enterprises llc.</p>
-                                            <p><a href="https://stephenshapiro.zohosites.com/invisible-solutions-mastermind">Orlando, Florida, US</a></p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/web1s.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/web2b.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>CMS E-Commerce Website</h2>
-                                            <p>The Zoho commerece platform is used. Client: The Dentist's Choice Norcal.</p>
-                                            <p><a href="https://tdc-norcal.zohocommerce.com/">California, US</a></p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/web2s.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/web3b.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>CMS Website</h2>
-                                            <p>The Zoho platform is used. Client: Fandango Enterprises Consulting Firm.</p>
-                                            <p><a href="https://www.fandangoenterprises.com/">Kirkwood, Houston, Texas, US</a></p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/web3s.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-			    
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/first_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Management Sales Dashboard</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & ASP.NET</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/first_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/second_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Sales Cockpit</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & ASP.NET</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/second_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/third_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>SKU wise Stock Report</h2>
-                                            <p>Backend Applications are SQL & ASP.NET</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/third_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/fourth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Sales Trend Analysis with Projection</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & Qlik Sense</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/fourth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/fifth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>MC Analysis</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & Qlik Sense</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/fifth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/sixth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Stock Dashboard</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & Qlik Sense</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/sixth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/seventh_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>PSI Dashboard</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing & Qlik Sense</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/seventh_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/eight_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Financial Dashboard</h2>
-                                            <p>Backend Applications are SQL, Excel & Power BI</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/eight_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/ninth_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Sales Trend Analysis</h2>
-                                            <p>Backend Applications are SQL & Excel</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/ninth_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/Eleven_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Year wise Sales Qty Dashboard</h2>
-                                            <p>Backend Applications are SQL & Excel</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/Eleven_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/ten_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>KPI Dashboard Report</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing, ASP.NET & Crystal Report</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/ten_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <a href="img/tew_big_item.jpg" data-lightbox="image-1"><div class="hover-effect">
-                                        <div class="hover-content">
-                                            <h2>Primary & Secondary Sales Report</h2>
-                                            <p>Backend Applications are SQL, Datawarehousing, Android</p>
-                                        </div>
-                                    </div></a>
-                                    <div class="image">
-                                        <img src="img/tew_item.jpg">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        
-          </div>
-          <div class="slide" id="4">
-            <div class="content third-content">
-                <div class="container-fluid">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="first-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-content">
-                                                <h2>Analyzing Data with Power BI</h2>
-                                                <p>DA-100T00 Bangladesh Hi-Tech Park Authority and Corporate Projukti Limited</p>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-image">
-                                                <img src="img/first_service.jpg" alt="first service">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-				<div class="second-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-image">
-                                                <img src="img/Kmeans-1.jpg" alt="second service">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-content">
-                                                <h2>Foundations of Data Science: K-Means Clustering
-                                                    in Python</h2>
-                                                <p> Course authorized by University of London, Goldsmiths, University
-                                                    of London and offered through Coursera.
-                                                    </p>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="first-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-content">
-                                                <h2>Skills</h2>
-                                                <p>MS-SQL • PostgreSQL • C# • Android • Python • Power BI • Qlik Sense/View • Crystal Report • IFS ERP Report Development • CMS Platform- Zoho, WordPress • Project Management • Python Package- Pandas, Numpy, Seaborn • Git & Git Hub</p>
-                                                <div class="main-btn"><a href="#1">Continue Reading</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-image">
-                                                <img src="img/second_service.jpg" alt="first service">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-				
-				
-				
-				
- <!--                           <div class="second-section">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="left-image">
-                                                <img src="img/second_service.jpg" alt="second service">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="right-content">
-                                                <h2>Skills</h2>
-                                                <p>MS-SQL • C# • Android • Python • Power BI • Qlik Sense/View • Crystal Report • IFS ERP Report Development • Hardware/ Equipment Maintenance • Project Management • Stored Procedures • k-means with Python • Git & Git Hub</p>
-                                                <div class="main-btn"><a href="#1">Continue Reading</a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-				
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="slide" id="5">
-            <div class="content fifth-content">
-                <div class="container-fluid">
-                    <div class="col-md-6">
-                        <div id="map">
-    <!-- How to change your own map point
-            1. Go to Google Maps
-            2. Click on your location point
-            3. Click "Share" and choose "Embed map" tab
-            4. Copy only URL and paste it within the src="" field below
-	-->
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.8101571260977!2d90.39884181425523!3d23.78977369318958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7b0e8d484ad%3A0xca475b64bed31cd7!2sTranstec%20Lighting%20Limited%20Head%20Office!5e0!3m2!1sen!2sbd!4v1659803216349!5m2!1sen!2sbd" width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <form id="contact" action="" method="post">
-                            <div class="row">
-				    <h2> <span class="heading-meta">Get in Touch</span></h2>
-				    <div class="contact-mail contact-side-desc contact-box-desc">
-                                    <h3><i class="fa fa-envelope-o cl-atlantis fa-2x"></i> Phone & Email</h3>
-                                  <address class="address-details-f"> 
-                                   <h5> Phone: (+880) 1819 800492 <br>
-                                    Email: <a href="mailto:mdhumayunrashid@yahoo.com" class="">mdhumayunrashid@yahoo.com</a></h5>
-                                  </address>
-				</div>
-                              <!--  <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                                  </fieldset>
-                                </div>
-                                 <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Now</button>
-                                  </fieldset>
-                                </div>
-				 </div>   -->
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-          </div>
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-tag">About Me</p>
+  <h2 class="section-title">Data leader.<br>Transformation driver.</h2>
+  <div class="section-divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a <strong>Data & Business Intelligence professional</strong> based in Dhaka, Bangladesh, with 11+ years of experience designing enterprise analytics platforms, leading ERP implementations, and managing large-scale digital transformation in FMCG and manufacturing environments.
+      </p>
+      <p>
+        In January 2026, I led the nationwide launch of <strong>BrightFlow</strong> — a Flutter-based mobile sales platform integrated with real-time Looker dashboards and REST APIs, deployed across 250+ distributors and 300+ field offices.
+      </p>
+      <p>
+        I've worked directly with <strong>COO, CFO, CBO, and Head of Sales</strong>, translating complex data into executive insights that drive strategic decisions. I led SAP S/4HANA SD module implementation achieving <strong>100% real-time reconciliation</strong> with our internal sales system via API.
+      </p>
+      <p>
+        I hold an <strong>MPS in Applied Statistics & Data Science</strong> from Jahangirnagar University and the <strong>ACMP 4.0 certification</strong> from IBA, University of Dhaka.
+      </p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">🎓</div>
+        <div class="highlight-text">
+          <strong>MPS — Applied Statistics & Data Science</strong>
+          <span>Jahangirnagar University · 2022–2023</span>
         </div>
-
-        <div class="footer">
-          <div class="content">
-              <p>Copyright &copy; 2022 All rights reserved. | Powered by: <a href="https://hrashidbi.github.io/mdhumayunrashid/" target="_blank">H Rashid</a> </p>
-          </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏆</div>
+        <div class="highlight-text">
+          <strong>ACMP 4.0 Certification</strong>
+          <span>IBA, University of Dhaka</span>
         </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-text">
+          <strong>LookML Developer</strong>
+          <span>Google / Looker · 2025</span>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🌍</div>
+        <div class="highlight-text">
+          <strong>Based in Dhaka, Bangladesh</strong>
+          <span>mdhumayunrashid@yahoo.com</span>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🤝</div>
+        <div class="highlight-text">
+          <strong>C-Suite Stakeholder Experience</strong>
+          <span>COO · CFO · CBO · Head of Sales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<!-- ACHIEVEMENTS -->
+<section id="achievements" style="padding-top:0">
+  <p class="section-tag">Impact</p>
+  <h2 class="section-title">By the numbers</h2>
+  <div class="section-divider"></div>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-number">250+</div>
+      <div class="achievement-label">Distributors connected via BrightFlow platform</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-number">300+</div>
+      <div class="achievement-label">Field offices covered nationwide</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-number">100%</div>
+      <div class="achievement-label">Real-time SAP SD & Casper reconciliation</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-number">৳100K</div>
+      <div class="achievement-label">Monthly savings from reporting automation</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-number">50+</div>
+      <div class="achievement-label">TSM/RSM/DSM users on BrightFlow</div>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-number">4</div>
+      <div class="achievement-label">SAP modules implemented (SD, PP, QM, PM)</div>
+    </div>
+  </div>
+</section>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
-    
-    <script src="js/datepicker.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-tag">Career</p>
+  <h2 class="section-title">Experience</h2>
+  <div class="section-divider"></div>
+  <div class="timeline">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
+    <div class="timeline-item">
+      <div class="timeline-dot active"></div>
+      <div class="timeline-header">
+        <div class="timeline-role">Deputy Manager – MIS & IT</div>
+        <div class="timeline-date">2021 – Present</div>
+      </div>
+      <div class="timeline-company">Bangladesh Lamps PLC (Transcom Group) · Dhaka</div>
+      <ul class="timeline-points">
+        <li><strong>BrightFlow Project Manager</strong> — Led nationwide launch of Flutter-based mobile sales platform (Jan 2026) across 250+ distributors, 300+ field offices, 50+ TSM/RSM/DSM users.</li>
+        <li><strong>SAP S/4HANA SD Lead</strong> — Achieved 100% real-time reconciliation between SAP and internal Casper system via API (Dec 2024).</li>
+        <li><strong>Acting MIS Lead (2024)</strong> — Managed international applications, business continuity, and team operations.</li>
+        <li>Built enterprise BI platform (BigQuery + Looker) for Sales, Finance & Supply Chain — replacing all manual Excel reports, saving ৳100K/month.</li>
+        <li>Delivered real-time Production KPI dashboards, barcode system, and Credit Limit automation.</li>
+        <li>Worked directly with COO, CFO, CBO & Head of Sales on executive reporting.</li>
+      </ul>
+    </div>
 
-        
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <div class="timeline-role">Executive – ERP</div>
+        <div class="timeline-date">Aug 2014 – Dec 2020</div>
+      </div>
+      <div class="timeline-company">Transcom Limited · Dhaka</div>
+      <ul class="timeline-points">
+        <li>Developed QlikView dashboards for executive business performance monitoring.</li>
+        <li>Core contributor to IFS ERP implementation — reporting integration and manufacturing analytics.</li>
+        <li>Delivered user training and post-implementation support.</li>
+      </ul>
+    </div>
 
-        // navigation click actions 
-        $('.scroll-link').on('click', function(event){
-            event.preventDefault();
-            var sectionID = $(this).attr("data-id");
-            scrollToID('#' + sectionID, 750);
-        });
-        // scroll to top action
-        $('.scroll-top').on('click', function(event) {
-            event.preventDefault();
-            $('html, body').animate({scrollTop:0}, 'slow');         
-        });
-        // mobile nav toggle
-        $('#nav-toggle').on('click', function (event) {
-            event.preventDefault();
-            $('#main-nav').toggleClass("open");
-        });
-    });
-    // scroll function
-    function scrollToID(id, speed){
-        var offSet = 0;
-        var targetOffset = $(id).offset().top - offSet;
-        var mainNav = $('#main-nav');
-        $('html,body').animate({scrollTop:targetOffset}, speed);
-        if (mainNav.hasClass("open")) {
-            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
-            mainNav.removeClass("open");
-        }
-    }
-    if (typeof console === "undefined") {
-        console = {
-            log: function() { }
-        };
-    }
-    </script>
-</body>
-</html>
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <div class="timeline-role">Software Engineer</div>
+        <div class="timeline-date">Nov 2013 – Feb 2014</div>
+      </div>
+      <div class="timeline-company">HR Soft Bangladesh · Dhaka</div>
+      <ul class="timeline-points">
+        <li>Developed financial and accounting systems using ASP.NET MVC and MS SQL Server.</li>
+        <li>Built reusable reporting modules for enterprise financial applications.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-tag">Work</p>
+  <h2 class="section-title">Key Projects</h2>
+  <div class="section-divider"></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">📱</div>
+      <div class="project-year">2025 – 2026</div>
+      <div class="project-title">BrightFlow — Nationwide Sales Platform</div>
+      <div class="project-desc">Led end-to-end delivery as Project Manager. Mobile-first secondary sales platform deployed nationally on 1 January 2026 across 250+ distributors, 300+ field offices, and 50+ field officers with real-time Looker dashboards.</div>
+      <div class="project-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Looker</span>
+        <span class="tag">REST API</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">Project Manager</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">⚙️</div>
+      <div class="project-year">2023 – 2025</div>
+      <div class="project-title">SAP S/4HANA Implementation</div>
+      <div class="project-desc">Core technical team member for SAP rollout across PP, QM, PM modules. Led SD module achieving 100% real-time reconciliation between SAP and internal Casper system via API integration — zero manual intervention since Dec 2024.</div>
+      <div class="project-tags">
+        <span class="tag">SAP S/4HANA</span>
+        <span class="tag">SD Module</span>
+        <span class="tag">REST API</span>
+        <span class="tag">PwC</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">📊</div>
+      <div class="project-year">2021 – Present</div>
+      <div class="project-title">Enterprise BI Platform</div>
+      <div class="project-desc">Designed real-time analytics pipeline using BigQuery and Looker for Sales, Finance, and Supply Chain. Replaced all manual Excel reports — saving ৳100,000/month. Executive dashboards for COO, CFO, CBO, and Head of Sales.</div>
+      <div class="project-tags">
+        <span class="tag">BigQuery</span>
+        <span class="tag">Looker</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Power BI</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🏭</div>
+      <div class="project-year">2025</div>
+      <div class="project-title">Production Visibility Dashboard</div>
+      <div class="project-desc">Real-time manufacturing KPI dashboards across multiple product categories. Implemented barcode facility for production tracking. Eliminated all production reporting blind spots for manufacturing leadership.</div>
+      <div class="project-tags">
+        <span class="tag">Looker</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">KPI</span>
+        <span class="tag">Manufacturing</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">💳</div>
+      <div class="project-year">2024</div>
+      <div class="project-title">Credit Limit Automation System</div>
+      <div class="project-desc">Designed and delivered automated credit limit calculation system for the institution channel. Eliminated manual credit assessment process — real-time credit visibility for Finance and Sales teams.</div>
+      <div class="project-tags">
+        <span class="tag">System Design</span>
+        <span class="tag">Automation</span>
+        <span class="tag">SAP</span>
+        <span class="tag">API</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🎯</div>
+      <div class="project-year">2025 – Present</div>
+      <div class="project-title">Special Promotional Offer System</div>
+      <div class="project-desc">Leading development of Marketing team's gift tracking system — enabling real-time retail promotion data without manual intervention. Full product ownership from requirements to delivery.</div>
+      <div class="project-tags">
+        <span class="tag">Product Owner</span>
+        <span class="tag">Marketing Tech</span>
+        <span class="tag">Real-time</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-tag">Expertise</p>
+  <h2 class="section-title">Skills & Tools</h2>
+  <div class="section-divider"></div>
+  <div class="skills-grid">
+
+    <div class="skill-category">
+      <div class="skill-cat-title">📊 BI & Visualization</div>
+      <div class="skill-list">
+        <span class="skill-pill">Looker</span>
+        <span class="skill-pill">LookML</span>
+        <span class="skill-pill">Power BI</span>
+        <span class="skill-pill">QlikView</span>
+        <span class="skill-pill">Looker Studio</span>
+        <span class="skill-pill">DAX</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-title">🗄️ Data Platforms</div>
+      <div class="skill-list">
+        <span class="skill-pill">Google BigQuery</span>
+        <span class="skill-pill">SQL Server</span>
+        <span class="skill-pill">SSIS</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">Data Modeling</span>
+        <span class="skill-pill">Data Governance</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-title">💻 Programming</div>
+      <div class="skill-list">
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Pandas</span>
+        <span class="skill-pill">NumPy</span>
+        <span class="skill-pill">ASP.NET MVC</span>
+        <span class="skill-pill">C#</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-title">⚙️ ERP Systems</div>
+      <div class="skill-list">
+        <span class="skill-pill">SAP S/4HANA</span>
+        <span class="skill-pill">SAP SD</span>
+        <span class="skill-pill">SAP PP</span>
+        <span class="skill-pill">SAP QM</span>
+        <span class="skill-pill">SAP PM</span>
+        <span class="skill-pill">IFS ERP</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-title">📱 Development</div>
+      <div class="skill-list">
+        <span class="skill-pill">Flutter</span>
+        <span class="skill-pill">REST API Design</span>
+        <span class="skill-pill">Android</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">ASP.NET</span>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-cat-title">🎯 Leadership</div>
+      <div class="skill-list">
+        <span class="skill-pill">Project Management</span>
+        <span class="skill-pill">Product Ownership</span>
+        <span class="skill-pill">Agile Delivery</span>
+        <span class="skill-pill">Stakeholder Mgmt</span>
+        <span class="skill-pill">Team Leadership</span>
+        <span class="skill-pill">UAT</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-tag">Connect</p>
+  <h2 class="section-title">Let's talk</h2>
+  <div class="section-divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <a href="/cdn-cgi/l/email-protection#076a636f726a667e72697566746f6e63477e666f68682964686a" class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div class="contact-details">
+          <strong>Email</strong>
+          <span><span class="__cf_email__" data-cfemail="3d50595548505c4448534f5c4e5554597d445c555252135e5250">[email&#160;protected]</span></span>
+        </div>
+      </a>
+      <a href="tel:+8801819800492" class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-details">
+          <strong>Phone</strong>
+          <span>+880 1819 800492</span>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/mdhumayunrashid" target="_blank" class="contact-item">
+        <div class="contact-icon">🔗</div>
+        <div class="contact-details">
+          <strong>LinkedIn</strong>
+          <span>linkedin.com/in/mdhumayunrashid</span>
+        </div>
+      </a>
+      <a href="https://github.com/hrashidBI" target="_blank" class="contact-item">
+        <div class="contact-icon">💻</div>
+        <div class="contact-details">
+          <strong>GitHub</strong>
+          <span>github.com/hrashidBI</span>
+        </div>
+      </a>
+    </div>
+    <div style="background: rgba(46,117,182,0.08); border: 1px solid rgba(46,117,182,0.25); border-radius: 16px; padding: 2rem;">
+      <h3 style="font-family: Syne, sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: #4a9edd;">Let's work together</h3>
+      <p style="color: #8899aa; font-size: 0.88rem; line-height: 1.7;">
+        I'm always open to discussing data challenges, BI solutions, and enterprise transformation projects. Feel free to reach out!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Md. Hum
